@@ -1,6 +1,12 @@
 version: "3.7"
 services:
-  netbootxyz:
+  app_proxy:
+    environnement:
+      APP_HOST: netbootxyz
+      APP_PORT: 8090
+      PROXY_AUTH_ADD: "false"
+  
+  server:
     image: ghcr.io/netbootxyz/netbootxyz
     container_name: netbootxyz
     environment:
