@@ -7,7 +7,7 @@ services:
       PROXY_AUTH_ADD: "false"
   
   server:
-    image: ghcr.io/netbootxyz/netbootxyz
+    image: netbootxyz/netbootxyz:latest
     container_name: netbootxyz
     environment:
       - MENU_VERSION=2.0.84 # optional
