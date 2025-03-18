@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  app_proxy:
+    environnement:
+      APP_HOST: alan-netbootxyz
+      APP_PORT: 8090
+      PROXY_AUTH_ADD: "false"
+  
+  server:
+    image: netbootxyz/netbootxyz
+    container_name: alan-netbootxyz
+    environment:
+      - MENU_VERSION=2.0.84 
+      - NGINX_PORT=80 
+      - WEB_APP_PORT=3000 
+    volumes:
+      - /path/to/config:/config 
+      - /path/to/assets:/assets 
+    ports:
+      - 3000:3000 
+      - 69:69/udp
+      - 8090:80  # optional, destination should match ${NGINX_PORT} variable above.
+    restart: unless-stopped
